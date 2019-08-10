@@ -2,12 +2,13 @@ const User = require('./user');
 
 const employee = new User('employee', new Date('2018-04-02'));
 const affiliate = new User('affiliate', new Date('2019-04-02'));
-const towYears = new User(null, new Date('2017-04-02'));
+const twoYears = new User(null, new Date('2017-04-02'));
 const bill100 = new User(null, new Date('2019-04-02'));
 
 
 const getBill = (user, bill) => {
     try {
+        // check data input
         if (user && isNumber(bill)) {
             let netBill = bill;
             switch (user.type) {
@@ -18,6 +19,7 @@ const getBill = (user, bill) => {
                     netBill = bill - (bill * 0.1)
                     break;
                 default:
+                    // check two year
                     if (new Date().getTime() - new Date(user.createdDate).getTime() > 63115200000) {
                         netBill = bill - (bill * 0.05)
                     } else if (bill >= 100) {

@@ -1,0 +1,5 @@
+## run in terminal
+## run function getBill
+## you can change data input function in file controller.js ex : employee, affiliate, or twoYears
+
+node controller.js
